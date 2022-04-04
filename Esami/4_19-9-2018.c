@@ -1,3 +1,27 @@
+/**
+SPECIFICATION TO BE IMPLEMENTED:
+Implementare un programma che riceva in input tramite argv[] i pathname
+associati ad N file (F1 ... FN), con N maggiore o uguale ad 1.
+Per ognuno di questi file generi un thread che gestira' il contenuto del file.
+Dopo aver creato gli N file ed i rispettivi N thread, il main thread dovra'
+leggere indefinitamente la sequenza di byte provenienti dallo standard-input.
+Ogni 5 nuovi byte letti, questi dovranno essere scritti da uno degli N thread
+nel rispettivo file. La consegna dei 5 byte da parte del main thread
+dovra' avvenire secondo uno schema round-robin, per cui i primi 5 byte
+dovranno essere consegnati al thread in carico di gestire F1, i secondi 5
+byte al thread in carico di gestire il F2 e cosi' via secondo uno schema
+circolare.
+
+L'applicazione dovra' gestire il segnale SIGINT (o CTRL_C_EVENT nel caso
+WinAPI) in modo tale che quando il processo venga colpito esso dovra',
+a partire dai dati correntemente memorizzati nei file F1 ... FN, ripresentare
+sullo standard-output la medesima sequenza di byte di input originariamente
+letta dal main thread dallo standard-input.
+
+Qualora non vi sia immissione di input, l'applicazione dovra' utilizzare
+non piu' del 5% della capacita' di lavoro della CPU.
+**/
+
 #include<unistd.h>
 #include<stdio.h>
 #include<string.h>
