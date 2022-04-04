@@ -1,3 +1,25 @@
+/**
+SPECIFICATION TO BE IMPLEMENTED:
+Implementare una programma che riceva in input, tramite argv[], il nomi
+di N file (con N maggiore o uguale a 1).
+Per ogni nome di file F_i ricevuto input dovra' essere attivato un nuovo thread T_i.
+Il main thread dovra' leggere indefinitamente stringhe dallo standard-input 
+e dovra' rendere ogni stringa letta disponibile ad uno solo degli altri N thread
+secondo uno schema circolare.
+Ciascun thread T_i a sua volta, per ogni stringa letta dal main thread e resa a lui disponibile, 
+dovra' scriverla su una nuova linea del file F_i. 
+
+L'applicazione dovra' gestire il segnale SIGINT (o CTRL_C_EVENT nel caso
+WinAPI) in modo tale che quando il processo venga colpito esso dovra' 
+riversare su standard-output e su un apposito file chiamato "output-file" il 
+contenuto di tutti i file F_i gestiti dall'applicazione 
+ricostruendo esattamente la stessa sequenza di stringhe (ciascuna riportata su 
+una linea diversa) che era stata immessa tramite lo standard-input.
+
+In caso non vi sia immissione di dati sullo standard-input, l'applicazione dovra' utilizzare 
+non piu' del 5% della capacita' di lavoro della CPU.
+**/
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
